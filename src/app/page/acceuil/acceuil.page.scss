@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.user{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    padding: 10px;
+}
+.note{
+    display: flex;
+    align-items: center;
+}

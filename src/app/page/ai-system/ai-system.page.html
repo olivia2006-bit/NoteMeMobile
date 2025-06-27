@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header">
+      <div class="note">
+        <ion-title>NoteMe</ion-title>
+      </div>
+      <div class="user">
+        <ion-icon name="person-circle" size="large"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <div class="chatHistory">
+          <ion-title>Chat history</ion-title>
+          <ion-icon name="create" size="large"></ion-icon>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <ion-searchbar></ion-searchbar>
+    <span>Chats</span>
+    <ion-content class="ion-padding">List of Chat name</ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <div class="chatMenu">
+          <ion-title>Chat history</ion-title>
+          <ion-icon name="ellipsis-vertical"></ion-icon>
+        </div>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="messageZone">the container where the message have to be</div>
+      <div class="sendZone">
+        <ion-input
+          label="Ask me question"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Your message here"
+        ></ion-input>
+        <ion-button shape="round">
+          <ion-icon slot="icon-only" name="send"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-content>
+  </div>
+</ion-content>

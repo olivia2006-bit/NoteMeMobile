@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header">
+      <div class="note">
+        <ion-title>NoteMe</ion-title>
+      </div>
+      <div class="user">
+        <ion-icon name="person-circle" size="large"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="profil">
+    <div class="icon">
+      <ion-icon name="person-circle" size="large"></ion-icon>
+      <span>Profil</span>
+    </div>
+    <div class="profilInfo">
+      <ion-list>
+        <ion-item>
+          <ion-icon name="clipboard" slot="start"></ion-icon>
+          <span>Name:</span>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="person" slot="start"></ion-icon>
+          <span>Username:</span>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <span>User Email:</span>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="key" slot="start"></ion-icon>
+          <span>User password:</span>
+        </ion-item>
+      </ion-list>
+    </div>
+     <ion-button expand="block" class="ion-margin-top button">Update Profil</ion-button>
+  </div>
+</ion-content>

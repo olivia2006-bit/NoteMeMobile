@@ -1,0 +1,28 @@
+.contenue {
+  display: flex;
+  justify-content: center;   // centre verticalement
+  align-items: center;       // centre horizontalement
+  height: 100%;
+}
+
+.center-box {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-list {
+  width: 100%;
+}
+
+ion-item {
+  margin-bottom: 12px;
+}
+ion-button{
+    width: 100%;
+}

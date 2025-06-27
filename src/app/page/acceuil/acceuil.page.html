@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header">
+      <div class="note">
+        <ion-title>NoteMe</ion-title>
+      </div>
+      <div class="user">
+        <ion-icon name="person-circle" size="large"></ion-icon>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-searchbar></ion-searchbar>
+  </div>
+  <div>
+    <ion-fab slot="fixed" vertical="center" horizontal="end">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button id="present-alert">
+          <ion-icon name="document"></ion-icon>
+        </ion-fab-button>
+        <!-- //le formulaire de creation de note -->
+        <ion-alert
+          trigger="present-alert"
+          header="Enter your note name"
+          [buttons]="alertButtons"
+          [inputs]="alertInputs"
+        ></ion-alert>
+
+        <ion-fab-button>
+          <ion-icon name="folder" id="folder-alert"></ion-icon>
+        </ion-fab-button>
+        <!-- <ion-alert 
+          trigger="folder-alert"
+          header="Enter your folder name"
+          [buttons]="alertButtons"
+          [inputs]="alertInputs"
+        ></ion-alert> -->
+
+
+
+        <ion-fab-button>
+          <ion-icon name="cloud-upload"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+  </div>
+</ion-content>
