@@ -1,41 +1,33 @@
 <ion-content [fullscreen]="true" class="contenue">
-  <div class="center-box">
+  <app-not-connected-form-container>
     <div class="ion-text-center">
       <ion-icon name="people" size="large" class="people"></ion-icon>
     </div>
-
-      <form
-      [formGroup]="loginForm"
-      class="flex flex-column align-items-center gap-5 w-full"
-    >
-    <ion-list>
-      <ion-item>
-        <ion-icon name="person-add" slot="start" ></ion-icon>
-        <ion-input
-          label="Username"
-          label-placement="floating"
-          placeholder="Enter your username"
-          type="text"
-          formControlName="username"
-        ></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="key" slot="start"></ion-icon>
-        <ion-input
-          label="Password"
-          label-placement="floating"
-          placeholder="Enter your password"
-          type="password"
-          formControlName="password"
-        ></ion-input>
-      </ion-item>
-    </ion-list>
-
-    <ion-button expand="block" class="ion-margin-top" (click)="submit()">Login</ion-button>
-
-      </form>
-    <div class="ion-text-center ion-padding">
-      <a href="#">You don't have an account? Register</a>
+    <form [formGroup]="loginForm">
+      <ion-list>
+        <ion-item lines="none">
+          <ion-icon name="person-add" slot="start"></ion-icon>
+          <ion-input
+            placeholder="Username"
+            type="text"
+            formControlName="username"
+          ></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin-top" lines="none">
+          <ion-icon name="key" slot="start"></ion-icon>
+          <ion-input
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+          ></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="block" class="ion-margin-top" (click)="submit()">Login</ion-button>
+    </form>
+    <div class="ion-text-center">
+      <p>
+        You don't have an account? <a href="#" [routerLink]="['/', 'register']">Register</a>
+      </p>
     </div>
-  </div>
+  </app-not-connected-form-container>
 </ion-content>

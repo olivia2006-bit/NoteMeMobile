@@ -1,36 +1,38 @@
-<ion-content [fullscreen]="true" class="contenue">
-  <div class="center-box">
-  
-    <ion-icon name="people" size="large" class="main-icon"></ion-icon>
-
-      <form
+<ion-content [fullscreen]="true">
+  <app-not-connected-form-container>
+    <div class="ion-text-center">
+      <ion-icon name="people" size="large" class="main-icon"></ion-icon>
+    </div>
+    <form
       [formGroup]="registerForm"
-      class="flex flex-column align-items-center gap-5 w-full"
     >
-    <ion-list>
-      <ion-item>
-        <ion-icon name="book" slot="start"></ion-icon>
-        <ion-input label="Name" label-placement="floating" placeholder="Enter your name"  formControlName="nom"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="person" slot="start"></ion-icon>
-        <ion-input label="Username" label-placement="floating" placeholder="Enter your username"  formControlName="username"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="mail" slot="start"></ion-icon>
-        <ion-input label="Email" label-placement="floating" type="email" placeholder="email@domain.com"  formControlName="email"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="key" slot="start"></ion-icon>
-        <ion-input label="Password" label-placement="floating" type="password" placeholder="Enter your password"  formControlName="password"></ion-input>
-      </ion-item>
-    </ion-list>
-
-    <ion-button expand="block" class="ion-margin-top" (click)="submit()">Register</ion-button>
-      </form>
-  </div>
+      <ion-list>
+        <ion-item lines="none">
+          <ion-icon name="book" slot="start"></ion-icon>
+          <ion-input placeholder="Name" formControlName="nom"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon name="person" slot="start"></ion-icon>
+          <ion-input placeholder="Username" formControlName="username"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon name="mail" slot="start"></ion-icon>
+          <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon name="key" slot="start"></ion-icon>
+          <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button expand="block" class="ion-margin-top" (click)="submit()">Register</ion-button>
+    </form>
+    <div class="ion-text-center">
+      <p>
+        Already have an account? <a href="#" [routerLink]="['/', 'login']">Login</a>
+      </p>
+    </div>
+  </app-not-connected-form-container>
 </ion-content>
+
+
 

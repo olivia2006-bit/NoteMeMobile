@@ -5,13 +5,17 @@ import { IonContent, IonInput, IonList, IonItem, IonIcon, IonButton } from '@ion
 import { addIcons } from 'ionicons';
 import { personAdd, key, people } from 'ionicons/icons';
 import { AuthService } from 'src/app/services/auth.service';
+import {RouterLink} from "@angular/router";
+import {
+  NotConnectedFormContainerComponent
+} from "../../components/not-connected-form-container/not-connected-form-container.component";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule, IonInput, IonList, IonItem, IonIcon, IonButton, ReactiveFormsModule ]
+  imports: [IonContent, IonInput, IonList, IonItem, IonIcon, IonButton, ReactiveFormsModule, RouterLink, NotConnectedFormContainerComponent]
 })
 export class LoginPage implements OnInit {
 

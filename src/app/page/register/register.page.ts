@@ -5,13 +5,17 @@ import { IonContent, IonList, IonItem, IonInput, IonIcon, IonButton } from '@ion
 import { addIcons } from 'ionicons';
 import { mail, key, person, book, people } from 'ionicons/icons';
 import { RegisterService } from 'src/app/services/register.service';
+import {
+  NotConnectedFormContainerComponent
+} from "../../components/not-connected-form-container/not-connected-form-container.component";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [IonContent, CommonModule, FormsModule, IonList, IonItem, IonInput, IonIcon, IonButton, ReactiveFormsModule]
+  imports: [IonContent, IonList, IonItem, IonInput, IonIcon, IonButton, ReactiveFormsModule, NotConnectedFormContainerComponent, RouterLink]
 })
 export class RegisterPage implements OnInit {
   private registerService = inject(RegisterService);

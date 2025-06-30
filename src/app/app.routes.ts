@@ -1,11 +1,23 @@
-import { Routes } from '@angular/router';
-import { HomePage } from './home/home.page';
-import { LoginPage } from './page/login/login.page';
-import { RegisterPage } from './page/register/register.page';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { authGuard } from './guards/auth.guard';
+import {Routes} from '@angular/router';
+import {NavBarComponent} from './components/nav-bar/nav-bar.component';
+import {authGuard} from './guards/auth.guard';
 
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./page/register/register.page').then((m) => m.RegisterPage),
+  },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./page/login/login.page').then((m) => m.LoginPage),
+  },
   {
     path: 'noteMe',
     component: NavBarComponent,
@@ -33,25 +45,9 @@ export const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'note-edit/:idParam',
+    loadComponent: () => import('./page/note-edit/note-edit.page').then(m => m.NoteEditPage)
+  },
 
-  
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
-  },
-  {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-  },
-  {
-    path: 'register',
-    loadComponent: () =>
-      import('./page/register/register.page').then((m) => m.RegisterPage),
-  },
-  {
-    path: 'login',
-    loadComponent: () =>
-      import('./page/login/login.page').then((m) => m.LoginPage),
-  },
 ];

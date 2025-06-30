@@ -1,0 +1,14 @@
+.container {
+  background: #EDF2FA;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
+}
+
+ion-item {
+  --background: #fff;
+  border: 1px solid var(--ion-color-light-shade);
+}

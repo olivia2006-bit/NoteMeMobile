@@ -1,53 +1,40 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <div class="header">
-      <div class="note">
-        <ion-title>NoteMe</ion-title>
-      </div>
-      <div class="user">
-        <ion-icon name="person-circle" size="large"></ion-icon>
-      </div>
-    </div>
+  <ion-toolbar color="primary">
+    <ion-title>NoteMe</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div>
-    <ion-searchbar></ion-searchbar>
-  </div>
-  <div>
-    <ion-fab slot="fixed" vertical="center" horizontal="end">
-      <ion-fab-button>
-        <ion-icon name="add"></ion-icon>
+
+  <ion-list inset="true">
+    <ion-list-header>
+      <ion-label>All notes</ion-label>
+    </ion-list-header>
+    @for (item of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; track $index) {
+      <app-note-item />
+    }
+  </ion-list>
+
+  <ion-fab class="actions-button" slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button [routerLink]="['/', 'note-edit', 0]" id="present-alert">
+        <ion-icon name="document"></ion-icon>
       </ion-fab-button>
-      <ion-fab-list side="top">
-        <ion-fab-button id="present-alert">
-          <ion-icon name="document"></ion-icon>
-        </ion-fab-button>
-        <!-- //le formulaire de creation de note -->
-        <ion-alert
-          trigger="present-alert"
-          header="Enter your note name"
-          [buttons]="alertButtons"
-          [inputs]="alertInputs"
-        ></ion-alert>
+      <ion-fab-button>
+        <ion-icon name="folder" id="folder-alert"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 
-        <ion-fab-button>
-          <ion-icon name="folder" id="folder-alert"></ion-icon>
-        </ion-fab-button>
-        <!-- <ion-alert 
-          trigger="folder-alert"
-          header="Enter your folder name"
-          [buttons]="alertButtons"
-          [inputs]="alertInputs"
-        ></ion-alert> -->
-
-
-
-        <ion-fab-button>
-          <ion-icon name="cloud-upload"></ion-icon>
-        </ion-fab-button>
-      </ion-fab-list>
-    </ion-fab>
-  </div>
 </ion-content>

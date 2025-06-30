@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
   IonButton,
-  IonIcon,
-  IonSearchbar,
+  IonButtons,
+  IonContent,
   IonFab,
   IonFabButton,
   IonFabList,
-  IonAlert,
+  IonHeader,
+  IonIcon, IonLabel, IonList, IonListHeader,
+  IonSearchbar,
+  IonTitle,
+  IonToolbar,
 } from '@ionic/angular/standalone';
-import { document, add, folder, cloudUpload } from 'ionicons/icons';
-import { addIcons } from 'ionicons';
+import {add, document, folder} from 'ionicons/icons';
+import {addIcons} from 'ionicons';
+import {RouterLink} from "@angular/router";
+import {NoteItemComponent} from "../../components/note-item/note-item.component";
 
 @Component({
   selector: 'app-acceuil',
@@ -35,15 +37,22 @@ import { addIcons } from 'ionicons';
     IonFabList,
     IonButton,
     IonIcon,
-    IonAlert,
+    IonButtons,
+    RouterLink,
+    IonList,
+    IonListHeader,
+    IonLabel,
+    NoteItemComponent,
   ],
 })
 export class AcceuilPage implements OnInit {
   constructor() {
-    addIcons({ document, add, cloudUpload, folder });
+    addIcons({document, add, folder});
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('Acceuil Page');
+  }
 
   public alertButtons = ['Done', 'Cancel'];
   public alertInputs = [

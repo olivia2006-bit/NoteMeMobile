@@ -1,15 +1,11 @@
-.header{
-    display: flex;
-    flex-direction: row;
+ion-content {
+  --background: #e7edfb;
+  .page-container {
     width: 100%;
-}
-.user{
-    display: flex;
-    flex-direction: row-reverse;
-    width: 100%;
-    padding: 10px;
-}
-.note{
-    display: flex;
-    align-items: center;
+    height: 100%;
+    background-color: #e7edfb;
+  }
+  ion-list {
+    background-color: #e7edfb;
+  }
 }

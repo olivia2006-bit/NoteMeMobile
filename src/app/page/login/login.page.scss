@@ -1,15 +1,9 @@
-.contenue {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ion-item {
+  --background: #fff;
+  border: 1px solid var(--ion-color-light-shade);
 }
 
-.center-box {
+.button-container {
   width: 100%;
-  height: 100%;
-  max-width: 400px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-top: 1rem;
 }
