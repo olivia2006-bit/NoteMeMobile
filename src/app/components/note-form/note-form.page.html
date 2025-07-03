@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ title() }}</ion-title>
+    @if (update()) {
+      <ion-buttons slot="end">
+        <ion-button color="danger">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    }
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form">
+    <ion-list inset="true">
+      <ion-item lines="none" class="ion-margin-bottom">
+        <ion-input
+          placeholder="Title"
+          type="text"
+          formControlName="title"
+        />
+      </ion-item>
+      <ion-item lines="none">
+        <ion-textarea rows="15" placeholder="Content" formControlName="content"/>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
+
+<ion-footer class="ion-padding ion-no-border">
+  <ion-button expand="block" (click)="submit()">Save</ion-button>
+</ion-footer>

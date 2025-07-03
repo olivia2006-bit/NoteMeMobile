@@ -18,9 +18,15 @@
     <ion-list-header>
       <ion-label>All notes</ion-label>
     </ion-list-header>
-    @for (item of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; track $index) {
-      <app-note-item />
+    @for (note of noteService.notes(); track $index) {
+      <app-note-item (click)="openEditModal(note.id)" [id]="note.id" [title]="note.title" [content]="note.content"/>
     }
+    <!-- <app-note-item
+      [id]="0"
+      (click)="openEditModal(0)"
+      title="Create a new note"
+      content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto consequuntur cum dolores ea
+      expedita, ipsa libero numquam qui quia ratione suscipit tenetur vitae! Atque commodi eveniet explicabo quo rem."/> -->
   </ion-list>
 
   <ion-fab class="actions-button" slot="fixed" vertical="bottom" horizontal="end">
@@ -28,7 +34,7 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button [routerLink]="['/', 'note-edit', 0]" id="present-alert">
+      <ion-fab-button (click)="openAddModal()">
         <ion-icon name="document"></ion-icon>
       </ion-fab-button>
       <ion-fab-button>

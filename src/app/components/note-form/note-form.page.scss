@@ -12,3 +12,9 @@ ion-item {
   --background: #fff;
   border: 1px solid var(--ion-color-light-shade);
 }
+
+ion-footer {
+  border: 1px solid var(--ion-color-light-shade);
+  position: sticky;
+  bottom: 0;
+}

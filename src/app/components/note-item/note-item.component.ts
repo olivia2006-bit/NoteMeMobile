@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {IonButton, IonIcon, IonItem, IonLabel} from "@ionic/angular/standalone";
+import {Component, input} from '@angular/core';
+import {IonItem, IonLabel} from "@ionic/angular/standalone";
 
 @Component({
   selector: 'app-note-item',
@@ -7,15 +7,16 @@ import {IonButton, IonIcon, IonItem, IonLabel} from "@ionic/angular/standalone";
   styleUrls: ['./note-item.component.scss'],
   imports: [
     IonItem,
-    IonLabel,
-    IonButton,
-    IonIcon
+    IonLabel
   ]
 })
-export class NoteItemComponent  implements OnInit {
+export class NoteItemComponent {
 
-  constructor() { }
+  id = input.required<number>()
+  title = input.required<string>()
+  content = input.required<string>()
 
-  ngOnInit() {}
+  constructor() {
+  }
 
 }

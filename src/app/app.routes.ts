@@ -44,10 +44,5 @@ export const routes: Routes = [
           import('./page/ai-system/ai-system.page').then((m) => m.AiSystemPage),
       },
     ],
-  },
-  {
-    path: 'note-edit/:idParam',
-    loadComponent: () => import('./page/note-edit/note-edit.page').then(m => m.NoteEditPage)
-  },
-
+  }
 ];

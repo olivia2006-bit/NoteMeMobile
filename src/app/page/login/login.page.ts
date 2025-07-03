@@ -5,7 +5,7 @@ import { IonContent, IonInput, IonList, IonItem, IonIcon, IonButton } from '@ion
 import { addIcons } from 'ionicons';
 import { personAdd, key, people } from 'ionicons/icons';
 import { AuthService } from 'src/app/services/auth.service';
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {
   NotConnectedFormContainerComponent
 } from "../../components/not-connected-form-container/not-connected-form-container.component";
@@ -20,6 +20,7 @@ import {
 export class LoginPage implements OnInit {
 
   private authservice = inject(AuthService);
+  private router = inject(Router);
 
   loginForm = new FormGroup({
     username: new FormControl('', { nonNullable: true}),

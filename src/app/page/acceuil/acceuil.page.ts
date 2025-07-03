@@ -1,6 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {Component, inject, OnInit} from '@angular/core';
 import {
   IonButton,
   IonButtons,
@@ -9,15 +7,21 @@ import {
   IonFabButton,
   IonFabList,
   IonHeader,
-  IonIcon, IonLabel, IonList, IonListHeader,
+  IonIcon,
+  IonLabel,
+  IonList,
+  IonListHeader,
   IonSearchbar,
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
 import {add, document, folder} from 'ionicons/icons';
 import {addIcons} from 'ionicons';
-import {RouterLink} from "@angular/router";
 import {NoteItemComponent} from "../../components/note-item/note-item.component";
+import {NoteService} from "../../services/note.service";
+import {ModalController} from "@ionic/angular";
+import {NoteAddModalComponent} from "./screens/note-add-modal/note-add-modal.component";
+import {NoteEditModalComponent} from "./screens/note-edit-modal/note-edit-modal.component";
 
 @Component({
   selector: 'app-acceuil',
@@ -29,8 +33,6 @@ import {NoteItemComponent} from "../../components/note-item/note-item.component"
     IonHeader,
     IonTitle,
     IonToolbar,
-    CommonModule,
-    FormsModule,
     IonSearchbar,
     IonFab,
     IonFabButton,
@@ -38,30 +40,42 @@ import {NoteItemComponent} from "../../components/note-item/note-item.component"
     IonButton,
     IonIcon,
     IonButtons,
-    RouterLink,
     IonList,
     IonListHeader,
     IonLabel,
     NoteItemComponent,
+
   ],
+  providers: [ModalController]
 })
 export class AcceuilPage implements OnInit {
+
+  noteService = inject(NoteService)
+  modalController = inject(ModalController)
+
   constructor() {
-    addIcons({document, add, folder});
+    addIcons({document, add, folder})
   }
 
   ngOnInit() {
-    console.log('Acceuil Page');
+    this.noteService.loadNotes()
   }
 
-  public alertButtons = ['Done', 'Cancel'];
-  public alertInputs = [
-    {
-      placeholder: 'Note name',
-    },
-    {
-      type: 'textarea',
-      placeholder: 'The content of your note here',
-    },
-  ];
+  async openAddModal() {
+    const modal = await this.modalController.create({
+      component: NoteAddModalComponent
+    });
+    modal.present();
+    const {data} = await modal.onWillDismiss();
+
+  }
+
+  async openEditModal(id: number) {
+    const modal = await this.modalController.create({
+      component: NoteEditModalComponent,
+      componentProps: {id}
+    });
+    modal.present();
+    const {data} = await modal.onWillDismiss();
+  }
 }
