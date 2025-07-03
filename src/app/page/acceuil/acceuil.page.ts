@@ -15,13 +15,14 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
-import {add, document, folder} from 'ionicons/icons';
+import {add, document, folder, logOutOutline} from 'ionicons/icons';
 import {addIcons} from 'ionicons';
 import {NoteItemComponent} from "../../components/note-item/note-item.component";
 import {NoteService} from "../../services/note.service";
 import {ModalController} from "@ionic/angular";
 import {NoteAddModalComponent} from "./screens/note-add-modal/note-add-modal.component";
 import {NoteEditModalComponent} from "./screens/note-edit-modal/note-edit-modal.component";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-acceuil',
@@ -51,14 +52,19 @@ import {NoteEditModalComponent} from "./screens/note-edit-modal/note-edit-modal.
 export class AcceuilPage implements OnInit {
 
   noteService = inject(NoteService)
+  authService = inject(AuthService)
   modalController = inject(ModalController)
 
   constructor() {
-    addIcons({document, add, folder})
+    addIcons({document, add, folder, logOutOutline})
   }
 
   ngOnInit() {
     this.noteService.loadNotes()
+  }
+
+  logout() {
+    this.authService.logout();
   }
 
   async openAddModal() {

@@ -32,6 +32,7 @@ export class NoteFormPage implements OnInit {
   title = computed(() => this.update() ? "Edit Note" : "Add Note")
 
   formCancelled = output();
+  deleteSubmitted = output();
   formSubmitted = output<NoteRequest>();
 
   form!: FormGroup<{ title: FormControl<string>, content: FormControl<string> }>;
@@ -49,6 +50,10 @@ export class NoteFormPage implements OnInit {
 
   cancel() {
     this.formCancelled.emit()
+  }
+
+  delete() {
+    this.deleteSubmitted.emit()
   }
 
   submit() {

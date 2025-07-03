@@ -46,4 +46,10 @@ export class NoteService {
     )
   }
 
+  delete(id: number) {
+    return this.http.delete(`${this.apiUrl}/note/${id}`).pipe(
+      tap(note => this.notes.update(value => value.filter(n => n.id !== id))),
+    )
+  }
+
 }

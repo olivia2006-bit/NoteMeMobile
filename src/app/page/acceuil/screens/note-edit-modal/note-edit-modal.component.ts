@@ -41,6 +41,15 @@ export class NoteEditModalComponent implements OnInit {
     this.modalController.dismiss()
   }
 
+  deleteNote() {
+    this.noteService.delete(this.id).subscribe({
+      next: _ => {
+        this.modalController.dismiss()
+      },
+      error: error => console.log(error),
+    })
+  }
+
   editNote(request: NoteRequest) {
     this.noteService.edit(this.id, request).subscribe({
       next: note => {

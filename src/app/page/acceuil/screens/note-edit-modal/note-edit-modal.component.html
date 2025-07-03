@@ -1,5 +1,5 @@
 <ion-content>
   @if (note) {
-    <app-note-form [note]="note" [update]="false" (formCancelled)="closeModal()" (formSubmitted)="editNote($event)"/>
+    <app-note-form [note]="note" [update]="true" (formCancelled)="closeModal()" (deleteSubmitted)="deleteNote()" (formSubmitted)="editNote($event)"/>
   }
 </ion-content>
